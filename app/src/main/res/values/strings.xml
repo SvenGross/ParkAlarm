@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ParkAlarm</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_park">Park</string>
+</resources>
