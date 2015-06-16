@@ -1,9 +1,12 @@
 package ch.zkb.m335.parkalarm;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -34,5 +37,27 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void park(View v) {
+        Log.d("MainActivity", "Redirect to ParkActivity");
+        Intent i = new Intent(this, ParkActivity.class);
+        startActivity(i);
+    }
+
+
+
+
+    //TODO
+    public void runningMainActivity(View v) {
+        Log.d("MainActivity", "Redirect to RunningMainActivity");
+        Intent i = new Intent(this, RunningMainActivity.class);
+        startActivity(i);
+    }
+
+    public void mapsActivity(View v) {
+        Log.d("MainActivity", "Redirect to MapsActivity");
+        Intent i = new Intent(this, MapsActivity.class);
+        startActivity(i);
     }
 }
