@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-    //TODO
+    //Only for testing
     public void runningMainActivity(View v) {
         Log.d("MainActivity", "Redirect to RunningMainActivity");
         Intent i = new Intent(this, RunningMainActivity.class);
