@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,12 +21,17 @@ public class RunningMainActivity extends Activity {
     private Button startB;
 
     private final long startTime = 50000;
-    private final long interval  = 10000;
+    private final long interval  = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running_main);
+        countDownTimer = new ParkCountDownTimer(startTime, interval);
+        startB = (Button) this.findViewById(R.id.startTimer);
+
+        text = (TextView) this.findViewById(R.id.timer);
+        timeElapsedView = (TextView) this.findViewById(R.id.timeElapsed);
     }
 
     @Override
@@ -51,18 +57,20 @@ public class RunningMainActivity extends Activity {
     }
 
     public void startTimer(View v){
+
         if (!timerHasStarted)
         {
+            Log.d("startTimer-Method", "startTimer-Method");
             countDownTimer.start();
             timerHasStarted = true;
-            startB.setText("Start Timer");
+            //startB.setText("Start Timer");
         }
         else
         {
 
             countDownTimer.cancel();
             timerHasStarted = false;
-            startB.setText("RESET");
+            //startB.setText("RESET");
         }
     }
 
