@@ -1,3 +1,8 @@
+/*
+ * @author: Dennis Gehrig
+ * @date:   16. Juni 2015
+ *
+ */
 package ch.zkb.m335.parkalarm;
 
 import android.app.Activity;
@@ -18,17 +23,19 @@ public class RunningMainActivity extends Activity {
     private long timeElapsed;
     private TextView text;
     private TextView timeElapsedView;
-    private Button startB;
+    private Button stopTimer;
 
-    private final long startTime = 50000;
-    private final long interval  = 100;
+    //startTime bekomme ich durch das ParkInfo Objekt in Anzahl Minuten
+    //man muss dann noch diese Minuten * 60000 rechnen
+    private final long startTime = 120000;
+    private final long interval  = 60000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running_main);
         countDownTimer = new ParkCountDownTimer(startTime, interval);
-        startB = (Button) this.findViewById(R.id.startTimer);
+        stopTimer = (Button) this.findViewById(R.id.startTimer);
 
         text = (TextView) this.findViewById(R.id.timer);
         timeElapsedView = (TextView) this.findViewById(R.id.timeElapsed);
@@ -63,14 +70,14 @@ public class RunningMainActivity extends Activity {
             Log.d("startTimer-Method", "startTimer-Method");
             countDownTimer.start();
             timerHasStarted = true;
-            //startB.setText("Start Timer");
+            //stopTimer.setText("Start Timer");
         }
         else
         {
 
             countDownTimer.cancel();
             timerHasStarted = false;
-            //startB.setText("RESET");
+            //stopTimer.setText("RESET");
         }
     }
 
@@ -86,6 +93,7 @@ public class RunningMainActivity extends Activity {
         @Override
         public void onFinish()
         {
+            //Alarm einbauen
             text.setText("Time's up!");
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(startTime));
         }
@@ -93,7 +101,7 @@ public class RunningMainActivity extends Activity {
         @Override
         public void onTick(long millisUntilFinished)
         {
-            text.setText("Time remain:" + millisUntilFinished);
+            stopTimer.setText("Time remain:" + millisUntilFinished);
             timeElapsed = startTime - millisUntilFinished;
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(timeElapsed));
         }
