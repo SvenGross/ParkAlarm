@@ -8,11 +8,12 @@
 
     <!-- Strings for ParkActivity -->
     <string name="button_save">Speichern</string>
-    <string name="editText_name">Name</string>
-    <string name="editText_floor">Etage</string>
-    <string name="editText_lot">Parkplatznummer</string>
-    <string name="editText_arrival">Ankunftszeit</string>
-    <string name="editText_alarm">Alarm</string>
+    <string name="label_name">Name</string>
+    <string name="label_floor">Etage</string>
+    <string name="label_lot">Parkplatznummer</string>
+    <string name="label_arrival">Ankunftszeit</string>
+    <string name="label_timer">Timer</string>
+    <string name="edittext_duration">Dauer</string>
     <string name="toggleButton_alarm_on">AN</string>
     <string name="toggleButton_alarm_off">AUS</string>
     <!-- END -->

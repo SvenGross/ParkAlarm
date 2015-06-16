@@ -11,36 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText_name"
-        android:hint="@string/editText_name"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="5dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="186dp"
         android:layout_height="wrap_content"
         android:id="@+id/editText_floor"
-        android:hint="@string/editText_floor"
-        android:layout_below="@+id/editText_name"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/toggleButton_alarm"
-        android:layout_alignEnd="@+id/toggleButton_alarm"
-        android:layout_margin="5dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:id="@+id/editText_lot"
         android:layout_gravity="right"
-        android:hint="@string/editText_lot"
-        android:layout_below="@+id/editText_floor"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/toggleButton_alarm"
-        android:layout_alignEnd="@+id/toggleButton_alarm"
-        android:layout_margin="5dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -48,24 +44,24 @@
         android:inputType="time"
         android:ems="10"
         android:id="@+id/editText_arrival"
-        android:hint="@string/editText_arrival"
-        android:layout_below="@+id/editText_lot"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/toggleButton_alarm"
-        android:layout_alignEnd="@+id/toggleButton_alarm"
-        android:layout_margin="5dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="time"
         android:ems="10"
-        android:id="@+id/editText_alarm"
-        android:hint="@string/editText_alarm"
-        android:layout_alignTop="@+id/toggleButton_alarm"
+        android:id="@+id/editText_timer"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="5dp" />
+        android:layout_toLeftOf="@+id/toggleButton_alarm"
+        android:layout_toStartOf="@+id/toggleButton_alarm"
+        android:hint="@string/edittext_duration" />
 
     <Button
         android:layout_width="wrap_content"
@@ -83,15 +79,64 @@
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/editText_alarm"
+        android:text="@string/label_timer"
         android:id="@+id/toggleButton_alarm"
-        android:layout_below="@+id/editText_arrival"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/editText_alarm"
-        android:layout_margin="5dp"
         android:checked="false"
         android:textColor="#ffffffff"
         android:textOff="@string/toggleButton_alarm_off"
-        android:textOn="@string/toggleButton_alarm_on" />
+        android:textOn="@string/toggleButton_alarm_on"
+        android:layout_alignTop="@+id/editText_timer"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/label_name"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/label_floor"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/editText_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/label_lot"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/editText_floor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/label_arrival"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/editText_lot"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/label_timer"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/editText_arrival"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
