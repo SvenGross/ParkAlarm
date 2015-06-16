@@ -1,5 +1,9 @@
 package ch.zkb.m335.parkalarm;
 
+import android.content.Context;
+import android.os.Environment;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -8,11 +12,13 @@ import java.util.Date;
 
 public class SerializeHelper {
 
+
     public void serializeParkInfo(String name
             , String etage
             , String parkNr
             , Date anZeit
-            , long dauer) {
+            , long dauer
+            , Context c) {
 
         ParkInfo pi = new ParkInfo();
         pi.setName(name);
@@ -23,7 +29,7 @@ public class SerializeHelper {
 
         try {
 
-            FileOutputStream fout = new FileOutputStream(ContextHelper.getAppContext().getFilesDir());
+            FileOutputStream fout = c.openFileOutput("gabriel.xml", c.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fout);
             oos.writeObject(pi);
             oos.close();
@@ -33,11 +39,11 @@ public class SerializeHelper {
         }
     }
 
-    public ParkInfo deserializeParkInfo() {
+    public ParkInfo deserializeParkInfo(Context c) {
 
         ParkInfo parkInfo;
         try {
-            FileInputStream fin = new FileInputStream(ContextHelper.getAppContext().getFilesDir());
+            FileInputStream fin = c.openFileInput("gabriel.xml");
             ObjectInputStream ois = new ObjectInputStream(fin);
             parkInfo = (ParkInfo) ois.readObject();
             ois.close();
