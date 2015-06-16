@@ -46,4 +46,16 @@
         android:layout_alignParentEnd="true"
         android:onClick="mapsActivity" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gabriel Test"
+        android:id="@+id/button2"
+        android:onClick="test"
+        android:layout_below="@+id/button5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.Date;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -46,8 +48,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-
-
     //Only for testing
     public void runningMainActivity(View v) {
         Log.d("MainActivity", "Redirect to RunningMainActivity");
@@ -59,5 +59,19 @@ public class MainActivity extends ActionBarActivity {
         Log.d("MainActivity", "Redirect to MapsActivity");
         Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
+    }
+
+    public void test(View v) {
+        ParkInfo pi = new ParkInfo();
+        Date anZeit = new Date();
+        SerializeHelper sh = new SerializeHelper();
+        anZeit.setTime(454878755);
+
+        sh.serializeParkInfo("Super-Parkplatz", "15a", "5", anZeit, 12345);
+        pi = sh.deserializeParkInfo();
+        //Log.d("Deserialized", pi.getAnZeit().toString());
+        //Log.d("Deserialized", pi.getName());
+        Log.d("Deserialized", pi.getParkNr());
+
     }
 }
