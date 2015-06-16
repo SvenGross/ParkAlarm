@@ -10,7 +10,15 @@ public class ParkInfo {
     String etage;
     String parkNr;
     Date anZeit;
-    long alarm;
+    long dauer;
+
+    public String getParkNr() {
+        return parkNr;
+    }
+
+    public void setParkNr(String parkNr) {
+        this.parkNr = parkNr;
+    }
 
 
     public String getName() {
@@ -37,12 +45,12 @@ public class ParkInfo {
         this.anZeit = anZeit;
     }
 
-    public long getAlarm() {
-        return alarm;
+    public long getDauer() {
+        return dauer;
     }
 
-    public void setAlarm(long alarm) {
-        this.alarm = alarm;
+    public void setDauer(long dauer) {
+        this.dauer = dauer;
     }
 }
 
