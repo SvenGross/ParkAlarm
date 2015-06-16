@@ -71,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
         pi = sh.deserializeParkInfo();
         //Log.d("Deserialized", pi.getAnZeit().toString());
         //Log.d("Deserialized", pi.getName());
-        Log.d("Deserialized", pi.getParkNr());
+        //Log.d("Deserialized", pi.getParkNr());
 
     }
 }
