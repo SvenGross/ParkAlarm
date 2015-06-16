@@ -54,6 +54,7 @@
             android:name=".RunningMainActivity"
             android:label="@string/title_activity_running_main" >
         </activity>
-    </application>
 
+
+    </application>
 </manifest>
