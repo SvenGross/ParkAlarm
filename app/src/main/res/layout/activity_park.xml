@@ -79,7 +79,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="#ff054696"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:onClick="saveParkInfo" />
 
     <ToggleButton
         android:layout_width="wrap_content"
@@ -102,7 +103,8 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:labelFor="@id/editText_name" />
 
     <TextView
         android:layout_width="wrap_content"

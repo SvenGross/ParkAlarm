@@ -5,21 +5,12 @@ import android.util.TimeUtils;
 import java.util.Date;
 
 
-public class ParkInfo {
-    String name;
-    String etage;
-    String parkNr;
-    Date anZeit;
-    long dauer;
-
-    public String getParkNr() {
-        return parkNr;
-    }
-
-    public void setParkNr(String parkNr) {
-        this.parkNr = parkNr;
-    }
-
+public class ParkInfo implements java.io.Serializable {
+    private String name;
+    private String floor;
+    private String lot;
+    private Date arrivalTime;
+    private long duration;
 
     public String getName() {
         return name;
@@ -29,28 +20,36 @@ public class ParkInfo {
         this.name = name;
     }
 
-    public String getEtage() {
-        return etage;
+    public String getFloor() {
+        return floor;
     }
 
-    public void setEtage(String etage) {
-        this.etage = etage;
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
-    public Date getAnZeit() {
-        return anZeit;
+    public String getLot() {
+        return lot;
     }
 
-    public void setAnZeit(Date anZeit) {
-        this.anZeit = anZeit;
+    public void setLot(String lot) {
+        this.lot = lot;
     }
 
-    public long getDauer() {
-        return dauer;
+    public Date getArrivalTime() {
+        return arrivalTime;
     }
 
-    public void setDauer(long dauer) {
-        this.dauer = dauer;
+    public void setArrivalTime(Date arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 }
 

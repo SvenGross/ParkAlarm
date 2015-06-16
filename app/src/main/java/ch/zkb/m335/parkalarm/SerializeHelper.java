@@ -22,10 +22,10 @@ public class SerializeHelper {
 
         ParkInfo pi = new ParkInfo();
         pi.setName(name);
-        pi.setEtage(etage);
-        pi.setParkNr(parkNr);
-        pi.setAnZeit(anZeit);
-        pi.setDauer(dauer);
+        pi.setFloor(etage);
+        pi.setLot(parkNr);
+        pi.setArrivalTime(anZeit);
+        pi.setDuration(dauer);
 
         try {
 

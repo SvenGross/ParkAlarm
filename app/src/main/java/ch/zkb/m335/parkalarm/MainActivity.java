@@ -58,7 +58,6 @@ public class MainActivity extends ActionBarActivity {
     public void mapsActivity(View v) {
         Log.d("MainActivity", "Redirect to MapsActivity");
         Intent i = new Intent(this, MapsActivity.class);
-        test(v);
         startActivity(i);
     }
 
@@ -69,10 +68,10 @@ public class MainActivity extends ActionBarActivity {
         anZeit.setTime(454878755);
 
         sh.serializeParkInfo("Super-Parkplatz", "15a", "5", anZeit, 12345);
-        sh.deserializeParkInfo();
-        Log.d("Deserialized", pi.getAnZeit().toString());
-        Log.d("Deserialized", pi.getName());
-        Log.d("Deserialized", pi.getParkNr());
+        pi = sh.deserializeParkInfo();
+        //Log.d("Deserialized", pi.getAnZeit().toString());
+        //Log.d("Deserialized", pi.getName());
+        //Log.d("Deserialized", pi.getParkNr());
 
     }
 }

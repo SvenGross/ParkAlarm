@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class RunningMainActivity extends Activity {
     private ParkCountDownTimer countDownTimer;
@@ -27,8 +29,9 @@ public class RunningMainActivity extends Activity {
 
     //startTime bekomme ich durch das ParkInfo Objekt in Anzahl Minuten
     //man muss dann noch diese Minuten * 60000 rechnen
-    private final long startTime = 120000;
-    private final long interval  = 60000;
+    private final long startTime = 180000;
+    private long       secondsToGo = 0;
+    private final long interval  = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,14 +97,23 @@ public class RunningMainActivity extends Activity {
         public void onFinish()
         {
             //Alarm einbauen
+            stopTimer.setText("Time remain:" + 0);
             text.setText("Time's up!");
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(startTime));
         }
 
+//        noch ändern! weil input ist in minuten
         @Override
         public void onTick(long millisUntilFinished)
         {
-            stopTimer.setText("Time remain:" + millisUntilFinished);
+            double d;
+            long minutesUntilFinished;
+            d = (double)millisUntilFinished / 1000;
+            minutesUntilFinished = Math.round(d) / 60;
+            if(minutesUntilFinished != (startTime/60000)){
+                minutesUntilFinished++;
+            }
+            stopTimer.setText("Time remain:" + minutesUntilFinished);
             timeElapsed = startTime - millisUntilFinished;
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(timeElapsed));
         }

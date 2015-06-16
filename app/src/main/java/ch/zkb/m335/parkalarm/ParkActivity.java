@@ -3,11 +3,14 @@ package ch.zkb.m335.parkalarm;
 import android.app.DatePickerDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,13 +19,32 @@ import java.util.Date;
 
 public class ParkActivity extends ActionBarActivity {
 
+    private String name;
+    private String floor;
+    private String lot;
+    private String arrivalTime;
+    private String duration;
+
+    private EditText field_name;
+    private EditText field_floor;
+    private EditText field_lot;
+    private EditText field_arrival;
+    private EditText field_duration;
+    private ToggleButton button_alarm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park);
 
-        EditText editText_arrival = (EditText) findViewById(R.id.editText_arrival);
-        editText_arrival.setText(new SimpleDateFormat("HH:mm").format(new Date()));
+        field_name = (EditText) findViewById(R.id.editText_name);
+        field_floor = (EditText) findViewById(R.id.editText_floor);
+        field_lot = (EditText) findViewById(R.id.editText_lot);
+        field_arrival = (EditText) findViewById(R.id.editText_arrival);
+        field_duration = (EditText) findViewById(R.id.editText_timer);
+        button_alarm = (ToggleButton) findViewById(R.id.toggleButton_alarm);
+
+        field_arrival.setText(new SimpleDateFormat("HH:mm").format(new Date()));
     }
 
     @Override
@@ -47,7 +69,22 @@ public class ParkActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveParkInfo() {
+    public void saveParkInfo(View v) {
+        name = field_name.getText().toString();
+        floor = field_floor.getText().toString();
+        lot = field_lot.getText().toString();
+        arrivalTime = field_arrival.getText().toString();
+        duration = field_duration.getText().toString();
 
+        if(name.isEmpty()) {
+            field_name.setError(getString(R.string.error_field_name));
+        }
+        else {
+            if (button_alarm.isChecked() && duration.isEmpty()) {
+                field_duration.setError(getString(R.string.error_field_timer));
+            } else {
+                Log.d("ParkActivity", "saveParkInfo start");
+            }
+        }
     }
 }
