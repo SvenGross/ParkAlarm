@@ -4,6 +4,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class ParkActivity extends ActionBarActivity {
@@ -12,6 +17,9 @@ public class ParkActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park);
+
+        EditText editText_arrival = (EditText) findViewById(R.id.editText_arrival);
+        editText_arrival.setText(new SimpleDateFormat("HH:mm").format(new Date()));
     }
 
     @Override
