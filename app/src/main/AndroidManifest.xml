@@ -50,6 +50,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ch.zkb.m335.parkalarm.MainActivity" />
         </activity>
+        <activity
+            android:name=".RunningMainActivity"
+            android:label="@string/title_activity_running_main" >
+        </activity>
     </application>
 
 </manifest>
