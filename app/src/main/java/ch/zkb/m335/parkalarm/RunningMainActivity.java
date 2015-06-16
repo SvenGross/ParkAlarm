@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,10 +26,12 @@ public class RunningMainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        countDownTimer = new ParkCountDownTimer(startTime, interval);
         startB = (Button) this.findViewById(R.id.startTimer);
 
         text = (TextView) this.findViewById(R.id.timer);
         timeElapsedView = (TextView) this.findViewById(R.id.timeElapsed);
+
         setContentView(R.layout.activity_running_main);
     }
 
@@ -55,6 +58,7 @@ public class RunningMainActivity extends Activity {
     }
 
     public void startTimer(View v){
+        Log.d("startTimer-Method", "startTimer-Method");
         if (!timerHasStarted)
         {
             countDownTimer.start();
