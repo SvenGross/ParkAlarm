@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -47,7 +48,8 @@ public class ParkActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveParkInfo() {
-
+    public void saveParkInfo(View v) {
+        EditText editText_name = (EditText) findViewById(R.id.editText_name);
+        editText_name.setError("Something went wrong");
     }
 }
