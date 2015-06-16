@@ -25,6 +25,10 @@ public class RunningMainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        startB = (Button) this.findViewById(R.id.startTimer);
+
+        text = (TextView) this.findViewById(R.id.timer);
+        timeElapsedView = (TextView) this.findViewById(R.id.timeElapsed);
         setContentView(R.layout.activity_running_main);
     }
 
