@@ -12,10 +12,9 @@
         android:text="Start Timer"
         android:id="@+id/startTimer"
         android:onClick="startTimer"
-        android:layout_below="@+id/timeElapsed"
-        android:layout_marginTop="61dp"
-        android:layout_alignRight="@+id/timeElapsed"
-        android:layout_alignEnd="@+id/timeElapsed" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="151dp" />
     <TextView
         android:id="@+id/timer"
         android:text="Time: "
@@ -31,5 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/timer"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
 </RelativeLayout>
