@@ -51,12 +51,8 @@
             android:label="@string/title_activity_running_main" >
         </activity>
 
-        <service android:name=".ch.zkb.m335.parkalarm.services.MyService" />
+        <service android:name=".services.MyService" />
 
-        <activity
-            android:name=".ch.zkb.m335.parkalarm.services.MapsActivity"
-            android:label="@string/title_activity_maps" >
-        </activity>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
