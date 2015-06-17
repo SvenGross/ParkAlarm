@@ -8,12 +8,7 @@ import android.util.Log;
 public class MyLocationListener implements LocationListener {
 
     @Override
-    public void onLocationChanged(Location loc) {
-        String longitude = "Longitude: " + loc.getLongitude();
-        String latitude = "Latitude: " + loc.getLatitude();
-
-        Log.d("Longitude", "Latitude");
-    }
+    public void onLocationChanged(Location loc) {}
 
     @Override
     public void onProviderDisabled(String provider) {}
