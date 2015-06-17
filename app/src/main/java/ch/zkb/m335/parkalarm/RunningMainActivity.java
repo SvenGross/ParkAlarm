@@ -72,9 +72,8 @@ public class RunningMainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToMap(View v){
-        Intent i = new Intent(this, MapsActivity.class);
-        startActivity(i);
+    public void goToMap() {
+
     }
 
     public void startTimer(View v){
