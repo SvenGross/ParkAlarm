@@ -13,7 +13,6 @@ import java.io.ObjectOutputStream;
 import java.util.Date;
 
 import ch.zkb.m335.parkalarm.MainActivity;
-import ch.zkb.m335.parkalarm.model.ParkInfo;
 
 public class SerializeHelper {
 
@@ -36,7 +35,7 @@ public class SerializeHelper {
 
         try {
 
-            FileOutputStream fout = MainActivity.mContext.openFileOutput("gabriel.xml", Context.MODE_PRIVATE);
+            FileOutputStream fout = MainActivity.mContext.openFileOutput("parkalarm.xml", Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fout);
             oos.writeObject(pi);
             oos.close();
@@ -50,7 +49,7 @@ public class SerializeHelper {
 
         ParkInfo parkInfo;
         try {
-            FileInputStream fin = MainActivity.mContext.openFileInput("gabriel.xml");
+            FileInputStream fin = MainActivity.mContext.openFileInput("parkalarm.xml");
             ObjectInputStream ois = new ObjectInputStream(fin);
             parkInfo = (ParkInfo) ois.readObject();
             ois.close();

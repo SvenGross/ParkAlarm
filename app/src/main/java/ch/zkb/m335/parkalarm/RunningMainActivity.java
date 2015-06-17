@@ -7,11 +7,13 @@ package ch.zkb.m335.parkalarm;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +29,7 @@ import java.util.Locale;
 import ch.zkb.m335.parkalarm.model.ParkInfo;
 import ch.zkb.m335.parkalarm.model.SerializeHelper;
 import ch.zkb.m335.parkalarm.services.MyService;
+import ch.zkb.m335.parkalarm.util.StopSequenceDialogFragment;
 
 public class RunningMainActivity extends Activity {
 
@@ -101,6 +104,19 @@ public class RunningMainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void stopSequence(View v) {
+        new AlertDialog.Builder(this)
+                .setTitle("Title")
+                .setMessage("Do you really want to whatever?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(RunningMainActivity.this, "Yaay", Toast.LENGTH_SHORT).show();
+                    }})
+                .setNegativeButton(android.R.string.no, null).show();
+//        StopSequenceDialogFragment stopSequenceDialogFragment = new StopSequenceDialogFragment();
     }
 
     public void startExternalMap() {

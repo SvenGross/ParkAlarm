@@ -13,6 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import ch.zkb.m335.parkalarm.model.ParkInfo;
+import ch.zkb.m335.parkalarm.model.SerializeHelper;
+
 
 public class MainActivity extends ActionBarActivity {
     public static Context mContext;
@@ -22,6 +25,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
+
+        //Falls bereits eine Sequenz aktiv, weiterleiten auf RunningMainActivity
+        SerializeHelper sh = new SerializeHelper();
+        ParkInfo pi = sh.deserializeParkInfo();
+        if (pi != null && pi.getName() != null) {
+            Intent i = new Intent(this, RunningMainActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override
