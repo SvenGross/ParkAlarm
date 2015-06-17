@@ -1,9 +1,7 @@
 package ch.zkb.m335.parkalarm;
 
 import android.content.Context;
-import android.os.Environment;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -12,20 +10,14 @@ import java.util.Date;
 
 public class SerializeHelper {
 
-
-    public void serializeParkInfo(String name
-            , String etage
-            , String parkNr
-            , Date anZeit
-            , long dauer
-            , Context c) {
+    public void serializeParkInfo(String name, String floor, String lot, Date arrivalTime, long duration, Context c) {
 
         ParkInfo pi = new ParkInfo();
         pi.setName(name);
-        pi.setFloor(etage);
-        pi.setLot(parkNr);
-        pi.setArrivalTime(anZeit);
-        pi.setDuration(dauer);
+        pi.setFloor(floor);
+        pi.setLot(lot);
+        pi.setArrivalTime(arrivalTime);
+        pi.setDuration(duration);
 
         try {
 

@@ -63,12 +63,12 @@ public class MainActivity extends ActionBarActivity {
 
     public void test(View v) {
         ParkInfo pi = new ParkInfo();
-        Date anZeit = new Date();
+        Date arrivalTime = new Date();
         SerializeHelper sh = new SerializeHelper();
-        anZeit.setTime(454878755);
+        arrivalTime.setTime(454878755);
 
-        sh.serializeParkInfo("Super-Parkplatz", "15a", "5", anZeit, 12345);
-        pi = sh.deserializeParkInfo();
+        //sh.serializeParkInfo("Super-Parkplatz", "15a", "5", anZeit, 12345);
+        //pi = sh.deserializeParkInfo();
         //Log.d("Deserialized", pi.getAnZeit().toString());
         //Log.d("Deserialized", pi.getName());
         //Log.d("Deserialized", pi.getParkNr());
