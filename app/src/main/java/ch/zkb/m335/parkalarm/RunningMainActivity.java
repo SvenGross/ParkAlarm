@@ -6,17 +6,18 @@
 package ch.zkb.m335.parkalarm;
 
 import android.app.Activity;
-import android.os.CountDownTimer;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.concurrent.TimeUnit;
+import ch.zkb.m335.parkalarm.ch.zkb.m335.parkalarm.services.MyService;
 
 
 public class RunningMainActivity extends Activity {
@@ -29,9 +30,14 @@ public class RunningMainActivity extends Activity {
 
     //startTime bekomme ich durch das ParkInfo Objekt in Anzahl Minuten
     //man muss dann noch diese Minuten * 60000 rechnen
-    private final long startTime = 180000;
+    private final long startTime = 60000;
     private long       secondsToGo = 0;
     private final long interval  = 100;
+
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(this, "Dieser Button können Sie momentan nicht verwenden.", Toast.LENGTH_LONG).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +73,7 @@ public class RunningMainActivity extends Activity {
     }
 
     public void startTimer(View v){
-
+        startService(v);
         if (!timerHasStarted)
         {
             Log.d("startTimer-Method", "startTimer-Method");
@@ -77,7 +83,6 @@ public class RunningMainActivity extends Activity {
         }
         else
         {
-
             countDownTimer.cancel();
             timerHasStarted = false;
             //stopTimer.setText("RESET");
@@ -100,9 +105,10 @@ public class RunningMainActivity extends Activity {
             stopTimer.setText("Time remain:" + 0);
             text.setText("Time's up!");
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(startTime));
+            stopService(new Intent(getBaseContext(), MyService.class));
         }
 
-//        noch ändern! weil input ist in minuten
+        //        noch ändern! weil input ist in minuten
         @Override
         public void onTick(long millisUntilFinished)
         {
@@ -117,6 +123,14 @@ public class RunningMainActivity extends Activity {
             timeElapsed = startTime - millisUntilFinished;
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(timeElapsed));
         }
+    }
+
+    public void startService(View v){
+        startService(new Intent(getBaseContext(), MyService.class));
+    }
+
+    public void stopService(View v){
+        stopService(new Intent(getBaseContext(), MyService.class));
     }
 
 }
