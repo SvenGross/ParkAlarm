@@ -13,7 +13,7 @@
     <string name="label_lot">Parkplatznummer</string>
     <string name="label_arrival">Ankunftszeit</string>
     <string name="label_timer">Timer</string>
-    <string name="edittext_duration">Dauer</string>
+    <string name="edittext_duration">Dauer (in Minuten)</string>
     <string name="toggleButton_alarm_on">AN</string>
     <string name="toggleButton_alarm_off">AUS</string>
 

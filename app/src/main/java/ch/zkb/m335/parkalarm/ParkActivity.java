@@ -43,6 +43,7 @@ public class ParkActivity extends FragmentActivity {
         button_alarm = (ToggleButton) findViewById(R.id.toggleButton_alarm);
 
         field_arrival.setText(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(new Date()));
+        field_duration.setActivated(false);
     }
 
     @Override
@@ -69,8 +70,14 @@ public class ParkActivity extends FragmentActivity {
 
     public void timePicker(View v) {
         TimePickerFragment timePickerFragment = new TimePickerFragment();
-        timePickerFragment.show(getSupportFragmentManager(), "parkActivityTimePicker");
         timePickerFragment.setParkActivity(this);
+        timePickerFragment.show(getSupportFragmentManager(), "parkActivityTimePicker");
+    }
+
+    public void setDurationField(View v) {
+        if(button_alarm.isChecked()) {
+            field_duration.setActivated(true);
+        }
     }
 
     public void saveParkInfo(View v) {
@@ -87,28 +94,38 @@ public class ParkActivity extends FragmentActivity {
             if (button_alarm.isChecked() && duration.isEmpty()) {
                 field_duration.setError(getString(R.string.error_field_timer));
             } else {
+                if(button_alarm.isChecked()) {
+                    duration = "0";
+                }
+
                 Date arrivalDatetime = new Date();
-                if(!arrivalTime.isEmpty()) {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                if (!arrivalTime.isEmpty()) {
                     try {
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                        arrivalTime = new SimpleDateFormat("dd.MM.yyyy") + " " + arrivalTime;
                         arrivalDatetime = simpleDateFormat.parse(arrivalTime);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
 
-                Log.d("ParkActivity", "saveParkInfo start");
                 SerializeHelper sh = new SerializeHelper();
-                sh.serializeParkInfo("Super-Parkplatz", "15a", "5", arrivalDatetime, 12345, getApplicationContext());
+                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), getApplicationContext());
                 ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
 
-                Intent i = new Intent(this, RunningMainActivity.class);
-                startActivity(i);
+                if (pi != null) {
+                    Intent i = new Intent(this, RunningMainActivity.class);
+                    startActivity(i);
+                }
             }
         }
     }
 
     public void setArrivalInView(String arrivalTime) {
         field_arrival.setText(arrivalTime);
+    }
+
+    public String getArrivalTime() {
+        return field_arrival.getText().toString();
     }
 }
