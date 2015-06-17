@@ -5,9 +5,12 @@
 package ch.zkb.m335.parkalarm;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,8 +75,22 @@ public class RunningMainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToMap() {
+    public void goToMap(View v) {
+        Log.d("MainActivity", "Redirect to MapsActivity");
+        Intent i = new Intent(this, MapsActivity.class);
+        startActivity(i);
 
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+
+        mBuilder.setSmallIcon(R.drawable.ic_media_play);
+        mBuilder.setContentTitle("Notification Alert, Click Me!");
+        mBuilder.setContentText("Hi, This is Android Notification Detail!");
+
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // notificationID allows you to update the notification later on.
+        mNotificationManager.notify(88, mBuilder.build());
     }
 
     public void startTimer(View v){

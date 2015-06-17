@@ -61,22 +61,4 @@ public class MainActivity extends ActionBarActivity {
         Intent i = new Intent(this, RunningMainActivity.class);
         startActivity(i);
     }
-
-    public void mapsActivity(View v) {
-        Log.d("MainActivity", "Redirect to MapsActivity");
-        Intent i = new Intent(this, MapsActivity.class);
-        startActivity(i);
-
-
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-
-        mBuilder.setSmallIcon(R.drawable.ic_media_play);
-        mBuilder.setContentTitle("Notification Alert, Click Me!");
-        mBuilder.setContentText("Hi, This is Android Notification Detail!");
-
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        // notificationID allows you to update the notification later on.
-        mNotificationManager.notify(88, mBuilder.build());
-    }
 }
