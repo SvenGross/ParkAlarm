@@ -1,8 +1,10 @@
 package ch.zkb.m335.parkalarm;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class ParkActivity extends ActionBarActivity {
+public class ParkActivity extends FragmentActivity {
 
     private String name;
     private String floor;
@@ -73,8 +75,9 @@ public class ParkActivity extends ActionBarActivity {
     }
 
     public void timePicker(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "timePicker");
+        TimePickerFragment timePickerFragment = new TimePickerFragment();
+        timePickerFragment.show(getSupportFragmentManager(), "parkActivityTimePicker");
+        timePickerFragment.setParkActivity(this);
     }
 
     public void saveParkInfo(View v) {
@@ -110,5 +113,9 @@ public class ParkActivity extends ActionBarActivity {
                 startActivity(i);
             }
         }
+    }
+
+    public void setDurationInView(String duration) {
+        field_duration.setText(duration);
     }
 }

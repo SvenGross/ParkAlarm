@@ -5,12 +5,13 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
 
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+
+    private ParkActivity parkActivity;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -24,6 +25,10 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        Log.d("TimePicker", "timeSet");
+        parkActivity.setDurationInView(hourOfDay + ":" + minute);
+    }
+
+    public void setParkActivity(ParkActivity parkActivity) {
+        this.parkActivity = parkActivity;
     }
 }
