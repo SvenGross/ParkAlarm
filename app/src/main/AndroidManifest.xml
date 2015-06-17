@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true"/>
@@ -37,7 +38,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" >
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".RunningMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ch.zkb.m335.parkalarm.MainActivity" />
@@ -55,6 +57,6 @@
             android:label="@string/title_activity_running_main" >
         </activity>
 
-
+        <service android:name=".ch.zkb.m335.parkalarm.services.MyService" />
     </application>
 </manifest>
