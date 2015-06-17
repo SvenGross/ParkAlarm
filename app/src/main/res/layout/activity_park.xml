@@ -18,7 +18,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:singleLine="true"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="#ff000000" />
 
     <EditText
         android:layout_width="186dp"
@@ -30,7 +31,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:singleLine="true"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="#ff000000" />
 
     <EditText
         android:layout_width="88dp"
@@ -43,7 +45,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:singleLine="true"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="#ff000000" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,12 +61,13 @@
         android:layout_alignParentEnd="true"
         android:singleLine="true"
         android:onClick="timePicker"
-        android:editable="false" />
+        android:editable="false"
+        android:textColor="#ff000000" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="time"
+        android:inputType="number"
         android:ems="10"
         android:id="@+id/editText_timer"
         android:layout_below="@+id/label_timer"
@@ -72,7 +76,9 @@
         android:layout_toLeftOf="@+id/toggleButton_alarm"
         android:layout_toStartOf="@+id/toggleButton_alarm"
         android:hint="@string/edittext_duration"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:enabled="true"
+        android:textColor="#ff000000" />
 
     <Button
         android:layout_width="wrap_content"
@@ -99,7 +105,9 @@
         android:textOn="@string/toggleButton_alarm_on"
         android:layout_alignTop="@+id/editText_timer"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="setDurationField"
+        android:background="#ff054696" />
 
     <TextView
         android:layout_width="wrap_content"
