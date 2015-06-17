@@ -7,8 +7,8 @@
     <string name="title_activity_maps">Map</string>
 
     <string name="main_start_button_text">Parkieren</string>
+    <string name="field_optional">(optional)</string>
 
-    <!-- Strings for ParkActivity -->
     <string name="button_save">Speichern</string>
     <string name="label_name">Name</string>
     <string name="label_floor">Etage</string>
@@ -21,8 +21,6 @@
 
     <string name="error_field_name">Das Feld darf nicht leer sein</string>
     <string name="error_field_timer">Es muss eine Zeit für den Timer eigestellt sein.</string>
-    <string name="error">Es ist ein unbekannter Fehler aufgetreten.</string>
-    <!-- END -->
-
     <string name="error_button_return">Sie können nicht weiter zurück.</string>
+    <string name="error">Es ist ein unbekannter Fehler aufgetreten.</string>
 </resources>

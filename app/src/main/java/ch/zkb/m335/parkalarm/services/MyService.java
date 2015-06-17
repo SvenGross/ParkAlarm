@@ -1,3 +1,7 @@
+/*
+ * @author: Dennis Gehrig
+ * @date:   16. Juni 2015
+ */
 package ch.zkb.m335.parkalarm.services;
 
 import android.app.Service;

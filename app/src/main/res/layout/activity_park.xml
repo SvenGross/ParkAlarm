@@ -32,7 +32,8 @@
         android:layout_alignParentEnd="true"
         android:singleLine="true"
         android:inputType="text"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:hint="@string/field_optional" />
 
     <EditText
         android:layout_width="88dp"
@@ -46,7 +47,8 @@
         android:layout_alignParentEnd="true"
         android:singleLine="true"
         android:inputType="text"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:hint="@string/field_optional" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,7 +64,8 @@
         android:singleLine="true"
         android:onClick="timePicker"
         android:editable="false"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:hint="@string/field_optional" />
 
     <EditText
         android:layout_width="wrap_content"

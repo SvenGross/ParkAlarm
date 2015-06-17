@@ -1,3 +1,7 @@
+/*
+ * @author: Sven Gross
+ * @date:   16. Juni 2015
+ */
 package ch.zkb.m335.parkalarm;
 
 import android.content.Context;
@@ -74,9 +78,9 @@ public class ParkActivity extends FragmentActivity {
     }
 
     public void timePicker(View v) {
-        TimePickerFragment timePickerFragment = new TimePickerFragment();
-        timePickerFragment.setParkActivity(this);
-        timePickerFragment.show(getSupportFragmentManager(), "parkActivityTimePicker");
+        MyTimePicker timePicker = new MyTimePicker();
+        timePicker.setParkActivity(this);
+        timePicker.show(getSupportFragmentManager(), "parkActivityTimePicker");
     }
 
     public void setDurationField(View v) {
@@ -110,9 +114,8 @@ public class ParkActivity extends FragmentActivity {
                 Date arrivalDatetime = new Date();
                 if (!arrivalTime.isEmpty()) {
                     try {
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
                         arrivalTime = new SimpleDateFormat("dd.MM.yyyy") + " " + arrivalTime;
-                        arrivalDatetime = simpleDateFormat.parse(arrivalTime);
+                        arrivalDatetime = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(arrivalTime);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }

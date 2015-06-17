@@ -1,6 +1,6 @@
 /*
  * @author: Dennis Gehrig
- * @date:   16. Juni 2015
+ * @date:   17. Juni 2015
  */
 package ch.zkb.m335.parkalarm;
 
@@ -17,29 +17,36 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import ch.zkb.m335.parkalarm.services.MyService;
 
 public class RunningMainActivity extends Activity {
+
     private ParkCountDownTimer countDownTimer;
-    private boolean            timerHasStarted = false;
-    private Button             stopTimer;
-    private long               duration;
+    private boolean timerHasStarted = false;
+    private final long interval = 1000;
 
-//    private final long startTime = 60000;
-    private final long interval  = 1000;
-
-    SerializeHelper sh = new SerializeHelper();
-//    instantiate ParkInfo-object (data from file)
+    private SerializeHelper sh = new SerializeHelper();
     private ParkInfo pi = sh.deserializeParkInfo();
 
-    @Override
-    public void onBackPressed(){
-        Toast.makeText(this, getString(R.string.error_button_return), Toast.LENGTH_LONG).show();
-    }
+    private EditText field_name;
+    private EditText field_floor;
+    private EditText field_lot;
+    private EditText field_arrival;
+    private Button button_timer;
+
+    private String name = null;
+    private String floor = null;
+    private String lot = null;
+    private Date arrivalTime = new Date();
+    private long duration = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +54,30 @@ public class RunningMainActivity extends Activity {
         setContentView(R.layout.activity_running_main);
 //        if pi is not null (if there is data in the file)
         if(pi != null){
-            duration  = pi.getDuration();
+            name = pi.getName();
+            floor = pi.getFloor();
+            lot = pi.getLot();
+            arrivalTime = pi.getArrivalTime();
+            duration = pi.getDuration();
         }
-//        TODO: startTime mit duration austauschen, nach tests
-        countDownTimer = new ParkCountDownTimer(duration, interval);
-        stopTimer = (Button) this.findViewById(R.id.startTimer);
 
+        field_name.setText(name);
+        field_floor.setText(floor);
+        field_lot.setText(lot);
+        field_arrival.setText(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(arrivalTime));
+        button_timer = (Button) this.findViewById(R.id.button_timer);
+
+        if(duration != 0) {
+            countDownTimer = new ParkCountDownTimer(duration, interval);
+        }
+        else {
+//            TODO: Zähler(Zeit) nach oben (Aktuelle Zeit - Ankunftszeit)
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, getString(R.string.error_button_return), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -135,8 +160,8 @@ public class RunningMainActivity extends Activity {
         @Override
         public void onFinish()
         {
-            //Alarm einbauen
-            stopTimer.setText("Finished!");
+//            TODO: Alarm einbauen
+            button_timer.setText("Zeit abgelaufen");
             stopService(new Intent(getBaseContext(), MyService.class));
         }
 
@@ -150,7 +175,7 @@ public class RunningMainActivity extends Activity {
             if(minutesUntilFinished != (duration / 60000)){
                 minutesUntilFinished++;
             }
-            stopTimer.setText("Minutes remain: " + minutesUntilFinished);
+            button_timer.setText(minutesUntilFinished + "Minuten übrig");
         }
     }
 

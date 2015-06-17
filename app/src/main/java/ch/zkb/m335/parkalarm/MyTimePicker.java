@@ -1,3 +1,7 @@
+/*
+ * @author: Sven Gross
+ * @date:   16. Juni 2015
+ */
 package ch.zkb.m335.parkalarm;
 
 import android.app.Dialog;
@@ -10,7 +14,7 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
-public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+public class MyTimePicker extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
     private ParkActivity parkActivity = null;
 
@@ -35,7 +39,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         return new TimePickerDialog(getActivity(), this, hour, minute, DateFormat.is24HourFormat(getActivity()));
     }
 
-    public void onTimeSet(TimePicker view, int hour, int minute) {
+    public void onTimeSet(android.widget.TimePicker view, int hour, int minute) {
         String hourString = Integer.toString(hour);
         String minuteString = Integer.toString(minute);
 

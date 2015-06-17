@@ -1,3 +1,7 @@
+/*
+ * @author: Gabriel Daw
+ * @date:   17. Juni 2015
+ */
 package ch.zkb.m335.parkalarm;
 
 import android.support.v4.app.FragmentActivity;

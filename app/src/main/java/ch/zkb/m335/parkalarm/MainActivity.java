@@ -1,19 +1,17 @@
+/*
+ * @author: Dennis Gehrig, Sven Gross, Gabriel Daw
+ * @date:   16. Juni 2015
+ */
 package ch.zkb.m335.parkalarm;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import java.util.Date;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -51,14 +49,6 @@ public class MainActivity extends ActionBarActivity {
     public void park(View v) {
         Log.d("MainActivity", "Redirect to ParkActivity");
         Intent i = new Intent(this, ParkActivity.class);
-        startActivity(i);
-    }
-
-
-    //Only for testing
-    public void runningMainActivity(View v) {
-        Log.d("MainActivity", "Redirect to RunningMainActivity");
-        Intent i = new Intent(this, RunningMainActivity.class);
         startActivity(i);
     }
 }

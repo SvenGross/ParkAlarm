@@ -1,3 +1,7 @@
+/*
+ * @author: Sven Gross
+ * @date:   16. Juni 2015
+ */
 package ch.zkb.m335.parkalarm.services;
 
 import android.location.Location;
