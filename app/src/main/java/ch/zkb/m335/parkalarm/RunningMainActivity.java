@@ -21,13 +21,8 @@ import ch.zkb.m335.parkalarm.services.MyService;
 public class RunningMainActivity extends Activity {
     private ParkCountDownTimer countDownTimer;
     private boolean            timerHasStarted = false;
-    private long               timeElapsed;
-    private TextView           text;
-    private TextView           timeElapsedView;
     private Button             stopTimer;
     private long               duration;
-    private double             longitude;
-    private double             latitude;
 
 //    private final long startTime = 60000;
     private final long interval  = 1000;
@@ -48,15 +43,11 @@ public class RunningMainActivity extends Activity {
 //        if pi is not null (if there is data in the file)
         if(pi != null){
             duration  = pi.getDuration();
-            longitude = pi.getLongitude();
-            latitude  = pi.getLatitude();
         }
 //        TODO: startTime mit duration austauschen, nach tests
         countDownTimer = new ParkCountDownTimer(duration, interval);
         stopTimer = (Button) this.findViewById(R.id.startTimer);
 
-        text = (TextView) this.findViewById(R.id.timer);
-        timeElapsedView = (TextView) this.findViewById(R.id.timeElapsed);
     }
 
     @Override
@@ -116,9 +107,7 @@ public class RunningMainActivity extends Activity {
         public void onFinish()
         {
             //Alarm einbauen
-            stopTimer.setText("Time remain:" + 0);
-            text.setText("Time's up!");
-            timeElapsedView.setText("Time Elapsed: " + String.valueOf(duration));
+            stopTimer.setText("Finished!");
             stopService(new Intent(getBaseContext(), MyService.class));
         }
 
@@ -132,9 +121,7 @@ public class RunningMainActivity extends Activity {
             if(minutesUntilFinished != (duration/60000)){
                 minutesUntilFinished++;
             }
-            stopTimer.setText("Time remain:" + minutesUntilFinished);
-            timeElapsed = duration - millisUntilFinished;
-            timeElapsedView.setText("Time Elapsed: " + String.valueOf(timeElapsed));
+            stopTimer.setText("Minutes remain: " + minutesUntilFinished);
         }
     }
 
