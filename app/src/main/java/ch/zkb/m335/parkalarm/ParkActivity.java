@@ -1,6 +1,10 @@
 package ch.zkb.m335.parkalarm;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,12 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 
-public class ParkActivity extends ActionBarActivity {
+public class ParkActivity extends FragmentActivity {
 
     private String name;
     private String floor;
@@ -44,7 +49,7 @@ public class ParkActivity extends ActionBarActivity {
         field_duration = (EditText) findViewById(R.id.editText_timer);
         button_alarm = (ToggleButton) findViewById(R.id.toggleButton_alarm);
 
-        field_arrival.setText(new SimpleDateFormat("HH:mm").format(new Date()));
+        field_arrival.setText(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(new Date()));
     }
 
     @Override
@@ -69,6 +74,12 @@ public class ParkActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void timePicker(View v) {
+        TimePickerFragment timePickerFragment = new TimePickerFragment();
+        timePickerFragment.show(getSupportFragmentManager(), "parkActivityTimePicker");
+        timePickerFragment.setParkActivity(this);
+    }
+
     public void saveParkInfo(View v) {
         name = field_name.getText().toString();
         floor = field_floor.getText().toString();
@@ -83,8 +94,28 @@ public class ParkActivity extends ActionBarActivity {
             if (button_alarm.isChecked() && duration.isEmpty()) {
                 field_duration.setError(getString(R.string.error_field_timer));
             } else {
+                Date arrivalDatetime = new Date();
+                if(!arrivalTime.isEmpty()) {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                    try {
+                        arrivalDatetime = simpleDateFormat.parse(arrivalTime);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 Log.d("ParkActivity", "saveParkInfo start");
+                SerializeHelper sh = new SerializeHelper();
+                sh.serializeParkInfo("Super-Parkplatz", "15a", "5", arrivalDatetime, 12345, getApplicationContext());
+                ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
+
+                Intent i = new Intent(this, RunningMainActivity.class);
+                startActivity(i);
             }
         }
+    }
+
+    public void setDurationInView(String duration) {
+        field_duration.setText(duration);
     }
 }

@@ -1,5 +1,6 @@
 package ch.zkb.m335.parkalarm;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -59,19 +60,5 @@ public class MainActivity extends ActionBarActivity {
         Log.d("MainActivity", "Redirect to MapsActivity");
         Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
-    }
-
-    public void test(View v) {
-        ParkInfo pi = new ParkInfo();
-        Date arrivalTime = new Date();
-        SerializeHelper sh = new SerializeHelper();
-        arrivalTime.setTime(454878755);
-
-        //sh.serializeParkInfo("Super-Parkplatz", "15a", "5", anZeit, 12345);
-        //pi = sh.deserializeParkInfo();
-        //Log.d("Deserialized", pi.getAnZeit().toString());
-        //Log.d("Deserialized", pi.getName());
-        //Log.d("Deserialized", pi.getParkNr());
-
     }
 }
