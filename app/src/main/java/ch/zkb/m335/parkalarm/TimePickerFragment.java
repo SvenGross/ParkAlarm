@@ -25,7 +25,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        parkActivity.setDurationInView(hourOfDay + ":" + minute);
+        parkActivity.setArrivalInView(hourOfDay + ":" + minute);
     }
 
     public void setParkActivity(ParkActivity parkActivity) {

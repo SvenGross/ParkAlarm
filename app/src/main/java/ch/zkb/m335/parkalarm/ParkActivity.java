@@ -1,24 +1,17 @@
 package ch.zkb.m335.parkalarm;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 
@@ -115,7 +108,7 @@ public class ParkActivity extends FragmentActivity {
         }
     }
 
-    public void setDurationInView(String duration) {
-        field_duration.setText(duration);
+    public void setArrivalInView(String arrivalTime) {
+        field_arrival.setText(arrivalTime);
     }
 }
