@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
@@ -16,8 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 import ch.zkb.m335.parkalarm.services.MyService;
 
@@ -73,6 +75,17 @@ public class RunningMainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void startExternalMap() {
+        SerializeHelper sh = new SerializeHelper();
+        ParkInfo pi = sh.deserializeParkInfo();
+        String latitude = String.valueOf(pi.getLatitude());
+        String longitude = String.valueOf(pi.getLongitude());
+
+        String uri = String.format(Locale.GERMAN, "geo:%f,%f", latitude, longitude);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(intent);
     }
 
     public void goToMap(View v) {
@@ -134,7 +147,7 @@ public class RunningMainActivity extends Activity {
             long minutesUntilFinished;
             d = (double)millisUntilFinished / 1000;
             minutesUntilFinished = Math.round(d) / 60;
-            if(minutesUntilFinished != (duration/60000)){
+            if(minutesUntilFinished != (duration / 60000)){
                 minutesUntilFinished++;
             }
             stopTimer.setText("Minutes remain: " + minutesUntilFinished);

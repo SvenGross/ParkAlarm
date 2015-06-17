@@ -19,7 +19,7 @@ public class MapsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         SerializeHelper sh = new SerializeHelper();
-//    instantiate ParkInfo-object (data from file)
+//        instantiate ParkInfo-object (data from file)
         ParkInfo pi = sh.deserializeParkInfo();
         latitude = pi.getLatitude();
         longitude = pi.getLongitude();

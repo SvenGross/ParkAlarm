@@ -107,7 +107,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="setDurationField"
-        android:background="#ff054696" />
+        android:background="#ffe58000" />
 
     <TextView
         android:layout_width="wrap_content"

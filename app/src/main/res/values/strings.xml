@@ -6,6 +6,8 @@
     <string name="title_activity_park">Parkieren</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="main_start_button_text">Parkieren</string>
+
     <!-- Strings for ParkActivity -->
     <string name="button_save">Speichern</string>
     <string name="label_name">Name</string>
