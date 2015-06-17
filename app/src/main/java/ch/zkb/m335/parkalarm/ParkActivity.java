@@ -18,6 +18,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import ch.zkb.m335.parkalarm.services.MyLocationListener;
+
 public class ParkActivity extends FragmentActivity {
 
     private String name;
@@ -97,7 +99,7 @@ public class ParkActivity extends FragmentActivity {
             if (button_alarm.isChecked() && duration.isEmpty()) {
                 field_duration.setError(getString(R.string.error_field_timer));
             } else {
-                if(button_alarm.isChecked()) {
+                if (!button_alarm.isChecked()) {
                     duration = "0";
                 }
 
@@ -112,24 +114,21 @@ public class ParkActivity extends FragmentActivity {
                     }
                 }
 
-                final LocationListener mLocationListener = new LocationListener() {
-                    @Override
-                    public void onLocationChanged(final Location location) {
-                        //your code here
-                    }
-                };
+                LocationListener locationListener = new MyLocationListener();
+                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 10, locationListener);
+                Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
-                LocationManager locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-
-                locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000L, 500.0f, locationListener);
-                Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
+                double longitude = 0;
+                double latitude = 0;
+                if (location != null) {
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+                }
 
                 SerializeHelper sh = new SerializeHelper();
-                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), longitude, latitude, getApplicationContext());
-                ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
+                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), longitude, latitude);
+                ParkInfo pi = sh.deserializeParkInfo();
 
                 if (pi != null) {
                     Intent i = new Intent(this, RunningMainActivity.class);

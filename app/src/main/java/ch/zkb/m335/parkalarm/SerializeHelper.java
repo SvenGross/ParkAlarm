@@ -24,7 +24,7 @@ public class SerializeHelper {
         pi.setLot(lot);
         pi.setArrivalTime(arrivalTime);
         pi.setDuration(duration);
-        pi.setLatitude(longitude);
+        pi.setLongitude(longitude);
         pi.setLatitude(latitude);
 
         try {
