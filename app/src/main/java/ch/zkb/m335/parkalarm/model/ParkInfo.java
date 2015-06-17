@@ -2,7 +2,7 @@
  * @author: Gabriel Daw
  * @date:   16. Juni 2015
  */
-package ch.zkb.m335.parkalarm;
+package ch.zkb.m335.parkalarm.model;
 
 import android.util.TimeUtils;
 

@@ -2,7 +2,7 @@
  * @author: Sven Gross
  * @date:   16. Juni 2015
  */
-package ch.zkb.m335.parkalarm.services;
+package ch.zkb.m335.parkalarm.util;
 
 import android.location.Location;
 import android.location.LocationListener;

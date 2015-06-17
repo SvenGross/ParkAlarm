@@ -2,7 +2,7 @@
  * @author: Sven Gross
  * @date:   16. Juni 2015
  */
-package ch.zkb.m335.parkalarm;
+package ch.zkb.m335.parkalarm.util;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -13,6 +13,8 @@ import android.util.Log;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+
+import ch.zkb.m335.parkalarm.ParkActivity;
 
 public class MyTimePicker extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 

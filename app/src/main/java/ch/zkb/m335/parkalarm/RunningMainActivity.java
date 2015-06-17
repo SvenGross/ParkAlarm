@@ -19,12 +19,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import ch.zkb.m335.parkalarm.model.ParkInfo;
+import ch.zkb.m335.parkalarm.model.SerializeHelper;
 import ch.zkb.m335.parkalarm.services.MyService;
 
 public class RunningMainActivity extends Activity {

@@ -2,7 +2,7 @@
  * @author: Gabriel Daw
  * @date:   16. Juni 2015
  */
-package ch.zkb.m335.parkalarm;
+package ch.zkb.m335.parkalarm.model;
 
 import android.content.Context;
 
@@ -11,6 +11,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Date;
+
+import ch.zkb.m335.parkalarm.MainActivity;
+import ch.zkb.m335.parkalarm.model.ParkInfo;
 
 public class SerializeHelper {
 
