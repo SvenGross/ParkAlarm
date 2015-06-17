@@ -58,7 +58,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void mapsActivity(View v) {
         Log.d("MainActivity", "Redirect to MapsActivity");
-        Intent i = new Intent(this, MapsActivity.class);
+        Intent i = new Intent(this, testMapsActivity.class);
         startActivity(i);
     }
 }

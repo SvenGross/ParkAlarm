@@ -2,7 +2,7 @@ package ch.zkb.m335.parkalarm;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
+import com.google.android.gms.maps.GoogleMap;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
