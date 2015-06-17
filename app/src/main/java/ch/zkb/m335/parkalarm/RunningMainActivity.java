@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import ch.zkb.m335.parkalarm.ch.zkb.m335.parkalarm.services.MyService;
 
-
 public class RunningMainActivity extends Activity {
     private ParkCountDownTimer countDownTimer;
     private boolean timerHasStarted = false;

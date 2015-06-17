@@ -1,6 +1,9 @@
 package ch.zkb.m335.parkalarm;
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -15,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import ch.zkb.m335.parkalarm.ch.zkb.m335.parkalarm.services.MyLocationListener;
 
 public class ParkActivity extends FragmentActivity {
 
@@ -109,6 +113,10 @@ public class ParkActivity extends FragmentActivity {
                         e.printStackTrace();
                     }
                 }
+
+                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                LocationListener locationListener = new MyLocationListener();
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
 
                 SerializeHelper sh = new SerializeHelper();
                 sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), getApplicationContext());

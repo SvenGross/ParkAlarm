@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.widget.Toast;
 
-/**
- * Created by dsghrg on 17.06.15.
- */
 public class MyService extends Service {
 
     @Override
