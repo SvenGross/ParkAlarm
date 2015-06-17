@@ -45,7 +45,7 @@ public class RunningMainActivity extends Activity {
         if(pi != null){
             duration = pi.getDuration();
         }
-//        startTime mit duration austauschen
+        //startTime mit duration austauschen
         countDownTimer = new ParkCountDownTimer(startTime, interval);
         stopTimer = (Button) this.findViewById(R.id.startTimer);
 
