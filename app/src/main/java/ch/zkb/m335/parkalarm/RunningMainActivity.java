@@ -27,12 +27,16 @@ public class RunningMainActivity extends Activity {
     private TextView text;
     private TextView timeElapsedView;
     private Button stopTimer;
+    private long duration;
 
     //startTime bekomme ich durch das ParkInfo Objekt in Anzahl Minuten
     //man muss dann noch diese Minuten * 60000 rechnen
     private final long startTime = 60000;
-    private long       secondsToGo = 0;
     private final long interval  = 100;
+
+    SerializeHelper sh = new SerializeHelper();
+    private ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
+
 
     @Override
     public void onBackPressed(){
@@ -43,6 +47,10 @@ public class RunningMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running_main);
+        if(pi != null){
+            duration = pi.getDuration();
+        }
+//        startTime mit duration austauschen
         countDownTimer = new ParkCountDownTimer(startTime, interval);
         stopTimer = (Button) this.findViewById(R.id.startTimer);
 
@@ -72,8 +80,13 @@ public class RunningMainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void goToMap(View v){
+        Intent i = new Intent(this, MapsActivity.class);
+        startActivity(i);
+    }
+
     public void startTimer(View v){
-        startService(v);
+        startService(new Intent(getBaseContext(), MyService.class));
         if (!timerHasStarted)
         {
             Log.d("startTimer-Method", "startTimer-Method");
@@ -125,12 +138,12 @@ public class RunningMainActivity extends Activity {
         }
     }
 
-    public void startService(View v){
-        startService(new Intent(getBaseContext(), MyService.class));
-    }
-
-    public void stopService(View v){
-        stopService(new Intent(getBaseContext(), MyService.class));
-    }
+//    public void startService(View v){
+//        startService(new Intent(getBaseContext(), MyService.class));
+//    }
+//
+//    public void stopService(View v){
+//        stopService(new Intent(getBaseContext(), MyService.class));
+//    }
 
 }
