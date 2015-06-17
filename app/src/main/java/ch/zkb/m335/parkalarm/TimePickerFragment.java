@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
@@ -34,8 +35,18 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         return new TimePickerDialog(getActivity(), this, hour, minute, DateFormat.is24HourFormat(getActivity()));
     }
 
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        parkActivity.setArrivalInView(hourOfDay + ":" + minute);
+    public void onTimeSet(TimePicker view, int hour, int minute) {
+        String hourString = Integer.toString(hour);
+        String minuteString = Integer.toString(minute);
+
+        if(hourString.length() == 1) {
+            hourString = "0" + hourString;
+        }
+        if(minuteString.length() == 1) {
+            minuteString = "0" + minuteString;
+        }
+
+        parkActivity.setArrivalInView(hourString + ":" + minuteString);
     }
 
     public void setParkActivity(ParkActivity parkActivity) {

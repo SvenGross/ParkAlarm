@@ -47,8 +47,8 @@ public class ParkActivity extends FragmentActivity {
         field_duration = (EditText) findViewById(R.id.editText_timer);
         button_alarm = (ToggleButton) findViewById(R.id.toggleButton_alarm);
 
-        field_arrival.setText(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(new Date()));
-        field_duration.setActivated(false);
+        field_arrival.setText(new SimpleDateFormat("HH:mm").format(new Date()));
+        field_duration.setEnabled(false);
     }
 
     @Override
@@ -81,7 +81,11 @@ public class ParkActivity extends FragmentActivity {
 
     public void setDurationField(View v) {
         if(button_alarm.isChecked()) {
-            field_duration.setActivated(true);
+            field_duration.setEnabled(true);
+        }
+        else {
+            field_duration.setEnabled(false);
+            field_duration.setText("");
         }
     }
 
