@@ -20,5 +20,7 @@
     <string name="error_field_name">Das Feld darf nicht leer sein</string>
     <string name="error_field_timer">Es muss eine Zeit für den Timer eigestellt sein.</string>
     <string name="error">Es ist ein unbekannter Fehler aufgetreten.</string>
+    <string name="title_activity_test_maps">Map</string>
+
     <!-- END -->
 </resources>
