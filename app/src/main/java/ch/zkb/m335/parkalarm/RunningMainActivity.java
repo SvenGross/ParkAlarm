@@ -1,7 +1,6 @@
 /*
  * @author: Dennis Gehrig
  * @date:   16. Juni 2015
- *
  */
 package ch.zkb.m335.parkalarm;
 
@@ -29,18 +28,15 @@ public class RunningMainActivity extends Activity {
     private Button stopTimer;
     private long duration;
 
-    //startTime bekomme ich durch das ParkInfo Objekt in Anzahl Minuten
-    //man muss dann noch diese Minuten * 60000 rechnen
     private final long startTime = 60000;
     private final long interval  = 100;
 
     SerializeHelper sh = new SerializeHelper();
     private ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
 
-
     @Override
     public void onBackPressed(){
-        Toast.makeText(this, "Dieser Button können Sie momentan nicht verwenden.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Diesen Button können Sie momentan nicht verwenden.", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -121,7 +117,6 @@ public class RunningMainActivity extends Activity {
             stopService(new Intent(getBaseContext(), MyService.class));
         }
 
-        //        noch ändern! weil input ist in minuten
         @Override
         public void onTick(long millisUntilFinished)
         {

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.text.ParseException;
@@ -116,6 +117,9 @@ public class ParkActivity extends FragmentActivity {
                 if (pi != null) {
                     Intent i = new Intent(this, RunningMainActivity.class);
                     startActivity(i);
+                }
+                else {
+                    Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG).show();
                 }
             }
         }
