@@ -113,7 +113,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_timer"
         android:onClick="startTimer"
-        android:text="TEST - ExternalMap"
+        android:text="TIMER"
         android:background="#ffe58000"
         android:textColor="#ffffffff"
         android:layout_alignParentBottom="true"
