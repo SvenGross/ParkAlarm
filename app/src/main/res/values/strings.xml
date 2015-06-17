@@ -22,4 +22,6 @@
     <string name="error_field_timer">Es muss eine Zeit für den Timer eigestellt sein.</string>
     <string name="error">Es ist ein unbekannter Fehler aufgetreten.</string>
     <!-- END -->
+
+    <string name="error_button_return">Sie können nicht weiter zurück.</string>
 </resources>

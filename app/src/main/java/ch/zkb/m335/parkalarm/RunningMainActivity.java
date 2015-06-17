@@ -34,11 +34,11 @@ public class RunningMainActivity extends Activity {
 
     SerializeHelper sh = new SerializeHelper();
 //    instantiate ParkInfo-object (data from file)
-private ParkInfo pi = sh.deserializeParkInfo();
+    private ParkInfo pi = sh.deserializeParkInfo();
 
     @Override
     public void onBackPressed(){
-        Toast.makeText(this, "Diesen Button können Sie momentan nicht verwenden.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.error_button_return), Toast.LENGTH_LONG).show();
     }
 
     @Override
