@@ -20,17 +20,20 @@ import ch.zkb.m335.parkalarm.ch.zkb.m335.parkalarm.services.MyService;
 
 public class RunningMainActivity extends Activity {
     private ParkCountDownTimer countDownTimer;
-    private boolean timerHasStarted = false;
-    private long timeElapsed;
-    private TextView text;
-    private TextView timeElapsedView;
-    private Button stopTimer;
-    private long duration;
+    private boolean            timerHasStarted = false;
+    private long               timeElapsed;
+    private TextView           text;
+    private TextView           timeElapsedView;
+    private Button             stopTimer;
+    private long               duration;
+    private double             longitude;
+    private double             latitude;
 
     private final long startTime = 60000;
     private final long interval  = 100;
 
     SerializeHelper sh = new SerializeHelper();
+//    instantiate ParkInfo-object (data from file)
     private ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
 
     @Override
@@ -42,10 +45,13 @@ public class RunningMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running_main);
+//        if pi is not null (if there is data in the file)
         if(pi != null){
-            duration = pi.getDuration();
+            duration  = pi.getDuration();
+            longitude = pi.getLongitude();
+            latitude  = pi.getLatitude();
         }
-//        startTime mit duration austauschen
+//        TODO: startTime mit duration austauschen, nach tests
         countDownTimer = new ParkCountDownTimer(startTime, interval);
         stopTimer = (Button) this.findViewById(R.id.startTimer);
 
