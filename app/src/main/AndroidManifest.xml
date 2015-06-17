@@ -39,14 +39,6 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:parentActivityName=".RunningMainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ch.zkb.m335.parkalarm.MainActivity" />
-        </activity>
-        <activity
             android:name=".ParkActivity"
             android:label="@string/title_activity_park"
             android:parentActivityName=".MainActivity" >
@@ -66,8 +58,8 @@
             android:label="@string/title_activity_maps" >
         </activity>
         <activity
-            android:name=".testMapsActivity"
-            android:label="@string/title_activity_test_maps" >
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
         </activity>
     </application>
 
