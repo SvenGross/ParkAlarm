@@ -1,4 +1,4 @@
-package ch.zkb.m335.parkalarm.ch.zkb.m335.parkalarm.services;
+package ch.zkb.m335.parkalarm.services;
 
 import android.app.Service;
 import android.content.Intent;

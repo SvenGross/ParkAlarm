@@ -2,6 +2,8 @@ package ch.zkb.m335.parkalarm;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -110,9 +112,20 @@ public class ParkActivity extends FragmentActivity {
                     }
                 }
 
-                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                double longitude = locationManager.getLastKnownLocation(locationManager.getBestProvider(null, true)).getLongitude();
-                double latitude = locationManager.getLastKnownLocation(locationManager.getBestProvider(null, true)).getLatitude();
+                final LocationListener mLocationListener = new LocationListener() {
+                    @Override
+                    public void onLocationChanged(final Location location) {
+                        //your code here
+                    }
+                };
+
+                LocationManager locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
+                locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000L, 500.0f, locationListener);
+                Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
 
                 SerializeHelper sh = new SerializeHelper();
                 sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), longitude, latitude, getApplicationContext());
