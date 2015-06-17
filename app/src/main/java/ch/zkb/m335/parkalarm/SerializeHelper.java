@@ -10,7 +10,13 @@ import java.util.Date;
 
 public class SerializeHelper {
 
-    public void serializeParkInfo(String name, String floor, String lot, Date arrivalTime, long duration, double longitude, double latitude, Context c) {
+    public void serializeParkInfo(String name,
+                                  String floor,
+                                  String lot,
+                                  Date arrivalTime,
+                                  long duration,
+                                  double longitude,
+                                  double latitude) {
 
         ParkInfo pi = new ParkInfo();
         pi.setName(name);
@@ -23,7 +29,7 @@ public class SerializeHelper {
 
         try {
 
-            FileOutputStream fout = c.openFileOutput("gabriel.xml", c.MODE_PRIVATE);
+            FileOutputStream fout = MainActivity.mContext.openFileOutput("gabriel.xml", Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fout);
             oos.writeObject(pi);
             oos.close();
@@ -33,11 +39,11 @@ public class SerializeHelper {
         }
     }
 
-    public ParkInfo deserializeParkInfo(Context c) {
+    public ParkInfo deserializeParkInfo() {
 
         ParkInfo parkInfo;
         try {
-            FileInputStream fin = c.openFileInput("gabriel.xml");
+            FileInputStream fin = MainActivity.mContext.openFileInput("gabriel.xml");
             ObjectInputStream ois = new ObjectInputStream(fin);
             parkInfo = (ParkInfo) ois.readObject();
             ois.close();

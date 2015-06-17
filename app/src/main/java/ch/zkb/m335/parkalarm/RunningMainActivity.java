@@ -34,7 +34,7 @@ public class RunningMainActivity extends Activity {
 
     SerializeHelper sh = new SerializeHelper();
 //    instantiate ParkInfo-object (data from file)
-    private ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
+private ParkInfo pi = sh.deserializeParkInfo();
 
     @Override
     public void onBackPressed(){
