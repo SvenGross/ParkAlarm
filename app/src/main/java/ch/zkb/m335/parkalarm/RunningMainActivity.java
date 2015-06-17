@@ -29,8 +29,8 @@ public class RunningMainActivity extends Activity {
     private double             longitude;
     private double             latitude;
 
-    private final long startTime = 60000;
-    private final long interval  = 100;
+//    private final long startTime = 60000;
+    private final long interval  = 1000;
 
     SerializeHelper sh = new SerializeHelper();
 //    instantiate ParkInfo-object (data from file)
@@ -52,7 +52,7 @@ private ParkInfo pi = sh.deserializeParkInfo();
             latitude  = pi.getLatitude();
         }
 //        TODO: startTime mit duration austauschen, nach tests
-        countDownTimer = new ParkCountDownTimer(startTime, interval);
+        countDownTimer = new ParkCountDownTimer(duration, interval);
         stopTimer = (Button) this.findViewById(R.id.startTimer);
 
         text = (TextView) this.findViewById(R.id.timer);
@@ -118,7 +118,7 @@ private ParkInfo pi = sh.deserializeParkInfo();
             //Alarm einbauen
             stopTimer.setText("Time remain:" + 0);
             text.setText("Time's up!");
-            timeElapsedView.setText("Time Elapsed: " + String.valueOf(startTime));
+            timeElapsedView.setText("Time Elapsed: " + String.valueOf(duration));
             stopService(new Intent(getBaseContext(), MyService.class));
         }
 
@@ -129,11 +129,11 @@ private ParkInfo pi = sh.deserializeParkInfo();
             long minutesUntilFinished;
             d = (double)millisUntilFinished / 1000;
             minutesUntilFinished = Math.round(d) / 60;
-            if(minutesUntilFinished != (startTime/60000)){
+            if(minutesUntilFinished != (duration/60000)){
                 minutesUntilFinished++;
             }
             stopTimer.setText("Time remain:" + minutesUntilFinished);
-            timeElapsed = startTime - millisUntilFinished;
+            timeElapsed = duration - millisUntilFinished;
             timeElapsedView.setText("Time Elapsed: " + String.valueOf(timeElapsed));
         }
     }

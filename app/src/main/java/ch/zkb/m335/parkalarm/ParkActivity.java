@@ -127,7 +127,7 @@ public class ParkActivity extends FragmentActivity {
                 }
 
                 SerializeHelper sh = new SerializeHelper();
-                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), longitude, latitude);
+                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration) * 60000, longitude, latitude);
                 ParkInfo pi = sh.deserializeParkInfo();
 
                 if (pi != null) {
