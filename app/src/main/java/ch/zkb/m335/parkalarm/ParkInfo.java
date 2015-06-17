@@ -11,16 +11,8 @@ public class ParkInfo implements java.io.Serializable {
     private String lot;
     private Date arrivalTime;
     private long duration;
-    private double latitude;
     private double longitude;
-
-    public double getLongitude() { return longitude; }
-
-    public void setLongitude(double longitude) { this.longitude = longitude; }
-
-    public double getLatitude() { return latitude; }
-
-    public void setLatitude(double latitude) { this.latitude = latitude; }
+    private double latitude;
 
     public String getName() {
         return name;
@@ -61,5 +53,13 @@ public class ParkInfo implements java.io.Serializable {
     public void setDuration(long duration) {
         this.duration = duration;
     }
+
+    public double getLongitude() { return longitude; }
+
+    public void setLongitude(double longitude) { this.longitude = longitude; }
+
+    public double getLatitude() { return latitude; }
+
+    public void setLatitude(double latitude) { this.latitude = latitude; }
 }
 

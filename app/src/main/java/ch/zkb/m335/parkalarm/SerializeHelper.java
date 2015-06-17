@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class SerializeHelper {
 
-    public void serializeParkInfo(String name, String floor, String lot, Date arrivalTime, long duration, Context c) {
+    public void serializeParkInfo(String name, String floor, String lot, Date arrivalTime, long duration, double longitude, double latitude, Context c) {
 
         ParkInfo pi = new ParkInfo();
         pi.setName(name);
@@ -18,6 +18,8 @@ public class SerializeHelper {
         pi.setLot(lot);
         pi.setArrivalTime(arrivalTime);
         pi.setDuration(duration);
+        pi.setLatitude(longitude);
+        pi.setLatitude(latitude);
 
         try {
 

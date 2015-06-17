@@ -115,7 +115,7 @@ public class ParkActivity extends FragmentActivity {
                 double latitude = locationManager.getLastKnownLocation(locationManager.getBestProvider(null, true)).getLatitude();
 
                 SerializeHelper sh = new SerializeHelper();
-                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), getApplicationContext());
+                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration), longitude, latitude, getApplicationContext());
                 ParkInfo pi = sh.deserializeParkInfo(getApplicationContext());
 
                 if (pi != null) {
