@@ -20,6 +20,8 @@
     <string name="edittext_duration">Dauer (in Minuten)</string>
     <string name="toggleButton_alarm_on">AN</string>
     <string name="toggleButton_alarm_off">AUS</string>
+    <string name="button_timer">Beenden</string>
+    <string name="button_map">Karte</string>
 
     <string name="error_field_name">Das Feld darf nicht leer sein</string>
     <string name="error_field_timer">Es muss eine Zeit für den Timer eigestellt sein.</string>
@@ -35,6 +37,5 @@
 
     <string name="timer_message_finish">Zeit abgelaufen</string>
     <string name="timer_message_remaining"> min übrig</string>
-
 
 </resources>

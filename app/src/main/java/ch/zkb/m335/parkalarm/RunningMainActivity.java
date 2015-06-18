@@ -82,9 +82,6 @@ public class RunningMainActivity extends Activity {
             countDownTimer = new ParkCountDownTimer(duration, interval);
             countDownTimer.start();
         }
-        else {
-//            TODO: Zähler(Zeit) nach oben (Aktuelle Zeit - Ankunftszeit)
-        }
     }
 
     @Override
@@ -123,7 +120,7 @@ public class RunningMainActivity extends Activity {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     goToMain();
                     sh.deleteParkInfo();
-                    if (countDownTimer == null) {
+                    if (countDownTimer != null) {
                         timerCanceled = true;
                         countDownTimer.cancel();
                     }

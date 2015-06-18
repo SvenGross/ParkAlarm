@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_timer"
         android:onClick="stopSequence"
-        android:text="TIMER"
+        android:text="@string/button_timer"
         android:background="#ffe58000"
         android:textColor="#ffffffff"
         android:layout_alignParentBottom="true"
@@ -121,7 +121,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map"
+        android:text="@string/button_map"
         android:id="@+id/button_map"
         android:onClick="goToMap"
         android:background="#ff054696"
