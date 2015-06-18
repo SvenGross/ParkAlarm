@@ -135,18 +135,20 @@ public class ParkActivity extends FragmentActivity {
                 if (location != null) {
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
-                }
 
-                SerializeHelper sh = new SerializeHelper();
-                sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration) * 60000, longitude, latitude);
-                ParkInfo pi = sh.deserializeParkInfo();
+                    SerializeHelper sh = new SerializeHelper();
+                    sh.serializeParkInfo(name, floor, lot, arrivalDatetime, Long.parseLong(duration) * 60000, longitude, latitude);
+                    ParkInfo pi = sh.deserializeParkInfo();
 
-                if (pi != null) {
-                    Intent i = new Intent(this, RunningMainActivity.class);
-                    startActivity(i);
+                    if (pi != null) {
+                        Intent i = new Intent(this, RunningMainActivity.class);
+                        startActivity(i);
+                    } else {
+                        Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG).show();
+                    }
                 }
                 else {
-                    Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.error_gps), Toast.LENGTH_LONG).show();
                 }
             }
         }

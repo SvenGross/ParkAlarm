@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ParkAlarm</string>
 
+    <string name="filename">parkalarm.xml</string>
+
     <string name="action_settings">Settings</string>
     <string name="title_activity_running_main">ParkAlarm</string>
     <string name="title_activity_park">Parkieren</string>
@@ -22,6 +24,7 @@
     <string name="error_field_name">Das Feld darf nicht leer sein</string>
     <string name="error_field_timer">Es muss eine Zeit für den Timer eigestellt sein.</string>
     <string name="error_button_return">Sie können nicht weiter zurück.</string>
+    <string name="error_gps">Bitte aktivieren Sie die Ortungsdientste.</string>
     <string name="error">Es ist ein unbekannter Fehler aufgetreten.</string>
 
     <string name="notification_title">ParkAlarm</string>
@@ -32,8 +35,6 @@
 
     <string name="timer_message_finish">Zeit abgelaufen</string>
     <string name="timer_message_remaining"> min übrig</string>
-
-    <string name="filename">parkalarm.xml</string>
 
 
 </resources>
