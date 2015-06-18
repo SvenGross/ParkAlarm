@@ -19,7 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -39,10 +39,10 @@ public class RunningMainActivity extends Activity {
     private SerializeHelper sh = new SerializeHelper();
     private ParkInfo pi = sh.deserializeParkInfo();
 
-    private EditText field_name;
-    private EditText field_floor;
-    private EditText field_lot;
-    private EditText field_arrival;
+    private TextView field_name;
+    private TextView field_floor;
+    private TextView field_lot;
+    private TextView field_arrival;
     private Button button_timer;
 
     private String name = null;
@@ -55,6 +55,13 @@ public class RunningMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running_main);
+
+        field_name = (TextView) findViewById(R.id.textfield_name);
+        field_floor = (TextView) findViewById(R.id.textfield_floor);
+        field_lot = (TextView) findViewById(R.id.textfield_lot);
+        field_arrival = (TextView) findViewById(R.id.textfield_arrival);
+        button_timer = (Button) findViewById(R.id.button_timer);
+
 //        if pi is not null (if there is data in the file)
         if(pi != null){
             name = pi.getName();
