@@ -117,7 +117,7 @@ public class ParkActivity extends FragmentActivity {
                 Date arrivalDatetime = new Date();
                 if (!arrivalTime.isEmpty()) {
                     try {
-                        arrivalTime = new SimpleDateFormat("dd.MM.yyyy") + " " + arrivalTime;
+                        arrivalTime = new SimpleDateFormat("dd.MM.yyyy").format(new Date()) + " " + arrivalTime;
                         arrivalDatetime = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(arrivalTime);
                     } catch (ParseException e) {
                         e.printStackTrace();

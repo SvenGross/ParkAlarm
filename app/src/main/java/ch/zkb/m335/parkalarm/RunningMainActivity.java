@@ -31,7 +31,7 @@ import ch.zkb.m335.parkalarm.services.MyService;
 
 public class RunningMainActivity extends Activity {
 
-    private ParkCountDownTimer countDownTimer;
+    private ParkCountDownTimer countDownTimer = null;
     private boolean timerCanceled = false;
     private final long interval = 1000;
 
@@ -122,26 +122,19 @@ public class RunningMainActivity extends Activity {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     goToMain();
                     sh.deleteParkInfo();
-                    timerCanceled = true;
-                    countDownTimer.cancel();
-                }})
+                    if (countDownTimer == null) {
+                        timerCanceled = true;
+                        countDownTimer.cancel();
+                    }
+
+                }
+            })
             .setNegativeButton(android.R.string.no, null).show();
     }
 
     public void goToMain() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-    }
-
-    public void startExternalMap() {
-        SerializeHelper sh = new SerializeHelper();
-        ParkInfo pi = sh.deserializeParkInfo();
-        String latitude = String.valueOf(pi.getLatitude());
-        String longitude = String.valueOf(pi.getLongitude());
-
-        String uri = String.format(Locale.GERMAN, "geo:%f,%f", latitude, longitude);
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        startActivity(intent);
     }
 
     public void goToMap(View v) {
@@ -165,7 +158,6 @@ public class RunningMainActivity extends Activity {
             stopService(new Intent(getBaseContext(), MyService.class));
 
             if(!timerCanceled) {
-//            TODO: Alarm einbauen
                 //Notification, wenn ParkTimer abgelaufen
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.mContext.getApplicationContext());
 
