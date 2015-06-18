@@ -145,7 +145,6 @@ public class RunningMainActivity extends Activity {
     }
 
     public void goToMap(View v) {
-        Log.d("MainActivity", "Redirect to MapsActivity");
         Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
     }
