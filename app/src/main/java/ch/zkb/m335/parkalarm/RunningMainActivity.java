@@ -33,7 +33,7 @@ import ch.zkb.m335.parkalarm.services.MyService;
 public class RunningMainActivity extends Activity {
 
     private ParkCountDownTimer countDownTimer;
-    private boolean timerHasStarted = false;
+    private boolean timerCanceled = false;
     private final long interval = 1000;
 
     private SerializeHelper sh = new SerializeHelper();
@@ -116,15 +116,21 @@ public class RunningMainActivity extends Activity {
 
     public void stopSequence(View v) {
         new AlertDialog.Builder(this)
-                .setTitle("Title")
-                .setMessage("Do you really want to whatever?")
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        Toast.makeText(RunningMainActivity.this, "Yaay", Toast.LENGTH_SHORT).show();
-                    }})
-                .setNegativeButton(android.R.string.no, null).show();
-//        StopSequenceDialogFragment stopSequenceDialogFragment = new StopSequenceDialogFragment();
+            .setTitle("Title")
+            .setMessage("Do you really want to whatever?")
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    goToMain();
+                    timerCanceled = true;
+                    countDownTimer.cancel();
+                }})
+            .setNegativeButton(android.R.string.no, null).show();
+    }
+
+    public void goToMain() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
     public void startExternalMap() {
