@@ -27,5 +27,7 @@
     <string name="notification_title">ParkAlarm</string>
     <string name="notification_message">Ihre Parkzeit ist abgelaufen</string>
 
+    <string name="stop_timer_popup_title">Timer stoppen</string>
+    <string name="stop_timer_popup_message">Möchten Sie wirklich beenden?</string>
 
 </resources>

@@ -116,8 +116,8 @@ public class RunningMainActivity extends Activity {
 
     public void stopSequence(View v) {
         new AlertDialog.Builder(this)
-            .setTitle("Title")
-            .setMessage("Do you really want to whatever?")
+            .setTitle(getString(R.string.stop_timer_popup_title))
+            .setMessage(getString(R.string.stop_timer_popup_message))
             .setIcon(android.R.drawable.ic_dialog_alert)
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -162,21 +162,23 @@ public class RunningMainActivity extends Activity {
         @Override
         public void onFinish()
         {
-//            TODO: Alarm einbauen
             button_timer.setText("Zeit abgelaufen");
             stopService(new Intent(getBaseContext(), MyService.class));
 
-            //Notification, wenn ParkTimer abgelaufen
-            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.mContext.getApplicationContext());
+            if(!timerCanceled) {
+//            TODO: Alarm einbauen
+                //Notification, wenn ParkTimer abgelaufen
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.mContext.getApplicationContext());
 
-            mBuilder.setSmallIcon(R.drawable.abc_ic_menu_moreoverflow_mtrl_alpha);
-            mBuilder.setContentTitle(getString(R.string.notification_title));
-            mBuilder.setContentText(getString(R.string.notification_message));
+                mBuilder.setSmallIcon(R.drawable.abc_ic_menu_moreoverflow_mtrl_alpha);
+                mBuilder.setContentTitle(getString(R.string.notification_title));
+                mBuilder.setContentText(getString(R.string.notification_message));
 
-            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-            // notificationID allows you to update the notification later on.
-            mNotificationManager.notify(88, mBuilder.build());
+                // notificationID allows you to update the notification later on.
+                mNotificationManager.notify(88, mBuilder.build());
+            }
         }
 
         @Override
@@ -189,7 +191,7 @@ public class RunningMainActivity extends Activity {
             if(minutesUntilFinished != (duration / 60000)){
                 minutesUntilFinished++;
             }
-            button_timer.setText(minutesUntilFinished + "Minuten übrig");
+            button_timer.setText(minutesUntilFinished + " min übrig");
         }
     }
 }
