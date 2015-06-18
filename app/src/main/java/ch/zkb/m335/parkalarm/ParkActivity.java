@@ -124,6 +124,7 @@ public class ParkActivity extends FragmentActivity {
                     }
                 }
 
+                //Get location from NETWORK_PROVIDER -> permission in manifest!
                 LocationListener locationListener = new MyLocationListener();
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 10, locationListener);
