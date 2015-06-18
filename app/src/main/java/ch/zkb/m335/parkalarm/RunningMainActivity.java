@@ -145,6 +145,7 @@ public class RunningMainActivity extends Activity {
     }
 
     public void goToMap(View v) {
+        Log.d("MainActivity", "Redirect to MapsActivity");
         Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
     }
@@ -169,7 +170,7 @@ public class RunningMainActivity extends Activity {
                 //Notification, wenn ParkTimer abgelaufen
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.mContext.getApplicationContext());
 
-                mBuilder.setSmallIcon(R.drawable.abc_ic_menu_moreoverflow_mtrl_alpha);
+                mBuilder.setSmallIcon(R.mipmap.ic_parking);
                 mBuilder.setContentTitle(getString(R.string.notification_title));
                 mBuilder.setContentText(getString(R.string.notification_message));
 
