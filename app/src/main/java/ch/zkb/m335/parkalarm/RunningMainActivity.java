@@ -62,7 +62,7 @@ public class RunningMainActivity extends Activity {
         field_arrival = (TextView) findViewById(R.id.textfield_arrival);
         button_timer = (Button) findViewById(R.id.button_timer);
 
-//        if pi is not null (if there is data in the file)
+//        if null there is no data in the file
         if(pi != null){
             name = pi.getName();
             floor = pi.getFloor();
@@ -148,18 +148,6 @@ public class RunningMainActivity extends Activity {
         Log.d("MainActivity", "Redirect to MapsActivity");
         Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
-
-
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-
-        mBuilder.setSmallIcon(R.drawable.ic_media_play);
-        mBuilder.setContentTitle("Notification Alert, Click Me!");
-        mBuilder.setContentText("Hi, This is Android Notification Detail!");
-
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        // notificationID allows you to update the notification later on.
-        mNotificationManager.notify(88, mBuilder.build());
     }
 
     // CountDownTimer class
@@ -177,6 +165,18 @@ public class RunningMainActivity extends Activity {
 //            TODO: Alarm einbauen
             button_timer.setText("Zeit abgelaufen");
             stopService(new Intent(getBaseContext(), MyService.class));
+
+            //Notification, wenn ParkTimer abgelaufen
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MainActivity.mContext.getApplicationContext());
+
+            mBuilder.setSmallIcon(R.drawable.abc_ic_menu_moreoverflow_mtrl_alpha);
+            mBuilder.setContentTitle(getString(R.string.notification_title));
+            mBuilder.setContentText(getString(R.string.notification_message));
+
+            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+            // notificationID allows you to update the notification later on.
+            mNotificationManager.notify(88, mBuilder.build());
         }
 
         @Override

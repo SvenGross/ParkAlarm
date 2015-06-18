@@ -5,8 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="ch.zkb.m335.parkalarm.RunningMainActivity"
-    android:background="#ffffffff"
-    android:labelFor="@id/textfield_floor">
+    android:background="#ffffffff">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,8 +15,7 @@
         android:id="@+id/label_name"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:labelFor="@id/textfield_name" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,8 +39,7 @@
         android:id="@+id/label_floor"
         android:layout_below="@+id/textfield_name"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:labelFor="@id/textfield_floor" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,8 +63,7 @@
         android:id="@+id/label_lot"
         android:layout_below="@+id/textfield_floor"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:labelFor="@id/textfield_lot" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,8 +87,7 @@
         android:id="@+id/label_arrival"
         android:layout_below="@+id/textfield_lot"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:labelFor="@id/textfield_arrival" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
