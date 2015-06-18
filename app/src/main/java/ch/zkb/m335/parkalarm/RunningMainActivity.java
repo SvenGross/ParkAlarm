@@ -140,8 +140,8 @@ public class RunningMainActivity extends Activity {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 
         mBuilder.setSmallIcon(R.drawable.ic_media_play);
-        mBuilder.setContentTitle("Notification Alert, Click Me!");
-        mBuilder.setContentText("Hi, This is Android Notification Detail!");
+        mBuilder.setContentTitle(getString(R.string.notification_title));
+        mBuilder.setContentText(getString(R.string.notification_message));
 
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

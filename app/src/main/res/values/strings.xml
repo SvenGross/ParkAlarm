@@ -23,4 +23,9 @@
     <string name="error_field_timer">Es muss eine Zeit für den Timer eigestellt sein.</string>
     <string name="error_button_return">Sie können nicht weiter zurück.</string>
     <string name="error">Es ist ein unbekannter Fehler aufgetreten.</string>
+
+    <CharSequence name="notification_title">ParkAlarm</CharSequence>
+    <CharSequence name="notification_message">Ihre Parkzeit ist abgelaufen</CharSequence>
+
+
 </resources>
