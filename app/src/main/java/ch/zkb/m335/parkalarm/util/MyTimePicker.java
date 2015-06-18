@@ -1,6 +1,8 @@
 /*
  * @author: Sven Gross
  * @date:   16. Juni 2015
+ *
+ * Diese Klasse
  */
 package ch.zkb.m335.parkalarm.util;
 
@@ -9,8 +11,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
-import android.util.Log;
-import android.widget.TimePicker;
 
 import java.util.Calendar;
 
@@ -33,6 +33,7 @@ public class MyTimePicker extends DialogFragment implements TimePickerDialog.OnT
             minute = c.get(Calendar.MINUTE);
         }
         else {
+            //Set the time from ParkActivity(ArrivalTime)
             hour = Integer.parseInt(parkActivity.getArrivalTime().substring(0, 2));
             minute = Integer.parseInt(parkActivity.getArrivalTime().substring(3, 5));
         }

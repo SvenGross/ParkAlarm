@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_timer"
-        android:onClick="startTimer"
+        android:onClick="stopSequence"
         android:text="TIMER"
         android:background="#ffe58000"
         android:textColor="#ffffffff"

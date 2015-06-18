@@ -4,8 +4,6 @@
  */
 package ch.zkb.m335.parkalarm.model;
 
-import android.util.TimeUtils;
-
 import java.util.Date;
 
 

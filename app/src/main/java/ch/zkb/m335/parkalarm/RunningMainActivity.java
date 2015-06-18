@@ -29,7 +29,6 @@ import java.util.Locale;
 import ch.zkb.m335.parkalarm.model.ParkInfo;
 import ch.zkb.m335.parkalarm.model.SerializeHelper;
 import ch.zkb.m335.parkalarm.services.MyService;
-import ch.zkb.m335.parkalarm.util.StopSequenceDialogFragment;
 
 public class RunningMainActivity extends Activity {
 
@@ -71,8 +70,10 @@ public class RunningMainActivity extends Activity {
         field_arrival.setText(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(arrivalTime));
         button_timer = (Button) this.findViewById(R.id.button_timer);
 
+        startService(new Intent(getBaseContext(), MyService.class));
         if(duration != 0) {
             countDownTimer = new ParkCountDownTimer(duration, interval);
+            countDownTimer.start();
         }
         else {
 //            TODO: Zähler(Zeit) nach oben (Aktuelle Zeit - Ankunftszeit)
@@ -148,23 +149,6 @@ public class RunningMainActivity extends Activity {
         mNotificationManager.notify(88, mBuilder.build());
     }
 
-    public void startTimer(View v){
-        startService(new Intent(getBaseContext(), MyService.class));
-        if (!timerHasStarted)
-        {
-            Log.d("startTimer-Method", "startTimer-Method");
-            countDownTimer.start();
-            timerHasStarted = true;
-            //stopTimer.setText("Start Timer");
-        }
-        else
-        {
-            countDownTimer.cancel();
-            timerHasStarted = false;
-            //stopTimer.setText("RESET");
-        }
-    }
-
     // CountDownTimer class
     public class ParkCountDownTimer extends CountDownTimer
     {
@@ -195,13 +179,4 @@ public class RunningMainActivity extends Activity {
             button_timer.setText(minutesUntilFinished + "Minuten übrig");
         }
     }
-
-//    public void startService(View v){
-//        startService(new Intent(getBaseContext(), MyService.class));
-//    }
-//
-//    public void stopService(View v){
-//        stopService(new Intent(getBaseContext(), MyService.class));
-//    }
-
 }
