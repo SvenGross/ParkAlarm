@@ -122,6 +122,7 @@ public class RunningMainActivity extends Activity {
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     goToMain();
+                    sh.deleteParkInfo();
                     timerCanceled = true;
                     countDownTimer.cancel();
                 }})
