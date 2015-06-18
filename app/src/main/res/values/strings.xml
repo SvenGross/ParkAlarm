@@ -30,4 +30,7 @@
     <string name="stop_timer_popup_title">Timer stoppen</string>
     <string name="stop_timer_popup_message">Möchten Sie wirklich beenden?</string>
 
+    <string name="timer_message_finish">Zeit abgelaufen</string>
+    <string name="timer_message_remaining"> min übrig</string>
+
 </resources>

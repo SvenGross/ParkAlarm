@@ -162,7 +162,7 @@ public class RunningMainActivity extends Activity {
         @Override
         public void onFinish()
         {
-            button_timer.setText("Zeit abgelaufen");
+            button_timer.setText(getString(R.string.timer_message_finish));
             stopService(new Intent(getBaseContext(), MyService.class));
 
             if(!timerCanceled) {
@@ -188,10 +188,10 @@ public class RunningMainActivity extends Activity {
             long minutesUntilFinished;
             d = (double)millisUntilFinished / 1000;
             minutesUntilFinished = Math.round(d) / 60;
-            if(minutesUntilFinished != (duration / 60000)){
+            if(minutesUntilFinished != (duration / 60000)) {
                 minutesUntilFinished++;
             }
-            button_timer.setText(minutesUntilFinished + " min übrig");
+            button_timer.setText(minutesUntilFinished + getString(R.string.timer_message_remaining));
         }
     }
 }
