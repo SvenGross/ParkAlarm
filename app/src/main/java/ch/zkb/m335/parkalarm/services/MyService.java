@@ -20,13 +20,11 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int falgs, int startId){
 //        We want this service to continue running until it is explicitly
 //        stopped, so return sticky
-        Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
         return START_STICKY;
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
-        Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
     }
 }
