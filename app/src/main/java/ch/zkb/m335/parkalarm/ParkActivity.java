@@ -81,25 +81,6 @@ public class ParkActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-            return false;
-        }
-        else if (keyCode == KeyEvent.KEYCODE_HOME) {
-            return false;
-        }
-        else if (keyCode == KeyEvent.KEYCODE_SEARCH) {
-            return false;
-        }
-        else if (keyCode == KeyEvent.KEYCODE_SETTINGS) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
     public void timePicker(View v) {
         MyTimePicker timePicker = new MyTimePicker();
         timePicker.setParkActivity(this);
