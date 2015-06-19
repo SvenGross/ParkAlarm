@@ -62,16 +62,6 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_SETTINGS) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
     //Weiterleiten auf ParkActivity
     public void park(View v) {
         Intent i = new Intent(this, ParkActivity.class);

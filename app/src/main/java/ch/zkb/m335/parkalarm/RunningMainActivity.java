@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,7 +86,7 @@ public class RunningMainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, getString(R.string.error_button_return), Toast.LENGTH_LONG).show();
+        stopSequence(null);
     }
 
     @Override

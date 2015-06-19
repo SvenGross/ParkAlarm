@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "ch.zkb.m335.parkalarm"
-        minSdkVersion 11
+        minSdkVersion 20
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
     }
     buildTypes {
         release {
