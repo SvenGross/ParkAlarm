@@ -7,6 +7,7 @@ package ch.zkb.m335.parkalarm;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -64,7 +65,9 @@ public class MapsActivity extends FragmentActivity {
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
-                setUpMap();
+                if (longitude != 0 && latitude != 0) {
+                    setUpMap();
+                }
             }
         }
     }
@@ -76,7 +79,14 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title(getString(R.string.map_pointer_name)));
+        LatLng car = new LatLng(latitude, longitude);
+
+        // Move the camera instantly to Sydney with a zoom of 15.
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(car, 14));
+
+        // add marker
+        mMap.addMarker(new MarkerOptions().position(car).title(getString(R.string.map_pointer_name)));
+
     }
 
 
