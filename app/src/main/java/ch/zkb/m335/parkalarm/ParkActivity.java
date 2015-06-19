@@ -11,6 +11,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -78,6 +79,25 @@ public class ParkActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return false;
+        }
+        else if (keyCode == KeyEvent.KEYCODE_HOME) {
+            return false;
+        }
+        else if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+            return false;
+        }
+        else if (keyCode == KeyEvent.KEYCODE_SETTINGS) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     public void timePicker(View v) {
