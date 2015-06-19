@@ -114,7 +114,7 @@ public class RunningMainActivity extends Activity {
         new AlertDialog.Builder(this)
             .setTitle(getString(R.string.stop_timer_popup_title))
             .setMessage(getString(R.string.stop_timer_popup_message))
-                .setIcon(R.mipmap.ic_parking)
+            .setIcon(R.mipmap.ic_parking)
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     goToMain();
