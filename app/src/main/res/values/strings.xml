@@ -38,4 +38,6 @@
     <string name="timer_message_finish">Zeit abgelaufen</string>
     <string name="timer_message_remaining"> min übrig</string>
 
+    <string name="map_pointer_name">Your Car</string>
+
 </resources>
