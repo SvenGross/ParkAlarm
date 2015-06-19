@@ -180,7 +180,7 @@ public class RunningMainActivity extends Activity {
             if(minutesUntilFinished != (duration / 60000)) {
                 minutesUntilFinished++;
             }
-            button_timer.setText(minutesUntilFinished + getString(R.string.timer_message_remaining));
+            button_timer.setText(minutesUntilFinished + " " + getString(R.string.timer_message_remaining));
         }
     }
 }
